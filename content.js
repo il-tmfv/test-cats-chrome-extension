@@ -1,7 +1,15 @@
 var replaceImagesWithCats = function () {
   var images = document.getElementsByTagName('img');
   for (var i = 0; i < images.length; i++) {
-    images[i].src = 'http://placekitten.com/' + images[i].width + '/' + images[i].height;
+    var width = images[i].width;
+    var height = images[i].height;
+
+    if (width > 100 || height > 100) {
+      if (width / height < 2 && height / width < 2) {
+        images[i].src = 'http://placekitten.com/' + images[i].width + '/' + images[i].height;
+      }
+    }
+
   }
 };
 
