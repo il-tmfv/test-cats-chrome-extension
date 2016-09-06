@@ -8,6 +8,16 @@ var getCatsStatus = function (callback) {
   });
 }
 
+/*
+chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
+  chrome.runtime.sendMessage({ type: 'catsStatus' }, function (response) {
+    console.log('Got response ' + JSON.stringify(response));
+    if (response.catsStatus == 1) replaceImagesWithCats();
+    return;
+  });
+});
+*/
+
 chrome.runtime.onMessage.addListener(
   function (request, sender, sendResponse) {
     getCatsStatus(function (catsStatus) {
