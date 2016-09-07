@@ -1,0 +1,32 @@
+{
+  "manifest_version": 2,
+  "name": "Test Cats Extension",
+  "version": "0.1",
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "<all_urls>",
+    "contextMenus",
+    "storage",
+    "https://*/*",
+    "http://*/*"
+  ],
+  "browser_action": {
+    "default_title": "CATS!",
+    "default_icon": "off.png"
+  },
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*///*//",
+        "https://*/*"
+      ],
+      "js": ["content.js"]
+    }
+  ]
+}
